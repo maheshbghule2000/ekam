@@ -1,3 +1,4 @@
+import 'package:classcheck/views/screens/login/login_screen.dart';
 import 'package:classcheck/views/screens/start/start_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -9,21 +10,31 @@ import '../services/app_service.dart';
 // );
 
 class Routes {
-  static const String hometRoute = "/home";
+  // static const String hometRoute = "/home";
+  static const String loginRoute = "/login";
 
   late final AppService appService;
   GoRouter get router => _goRouter;
   Routes(this.appService);
 
   late final GoRouter _goRouter = GoRouter(
-    initialLocation: hometRoute,
+    initialLocation: loginRoute,
     refreshListenable: appService,
     routerNeglect: true,
     routes: <GoRoute>[
-      GoRoute(
-        path: hometRoute,
-        builder: (BuildContext context, GoRouterState state) => StartScreen(),
+      // GoRoute(
+      //   path: hometRoute,
+      //   builder: (BuildContext context, GoRouterState state) => StartScreen(),
+      // ),
+       GoRoute(
+        path: loginRoute,
+        builder: (BuildContext context, GoRouterState state) => LoginScreen(),
       ),
+      
+      // GoRoute(
+      //   path: phoneRoute,
+      //   builder: (BuildContext context, GoRouterState state) => PhomeScreen(),
+      // ),
     ],
     // redirect: (context, state) {
     //   bool isLogedIn = appService.loginState;

@@ -1,4 +1,4 @@
-
+import 'package:classcheck/views/screens/login/login_screen.dart';
 import 'package:classcheck/views/widgets/divider_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,8 +13,6 @@ import '../../widgets/transparant_button_widget.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen({Key? key}) : super(key: key);
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -96,8 +94,11 @@ class StartScreen extends StatelessWidget {
             width: 140,
             height: 40,
             onPressed: () {
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => LoginScreen()),
+              // );
               // _homeController.gotoPhone(context);
-          
             },
           ),
         ],

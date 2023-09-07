@@ -26,4 +26,9 @@ static const Color dropDowngrayColor = Color(0xffD5D3D3);
 //phone Screen
 static const Color alertbox =Color(0xffFFBBB2);
 
+
+//new project color
+static const Color newBodyColor =Color(0xff070008);
+
+
 }

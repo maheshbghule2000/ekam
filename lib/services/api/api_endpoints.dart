@@ -1,4 +1,4 @@
 class ApiEndpoints {
   // Authentication URLs
-  
+
 }

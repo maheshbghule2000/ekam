@@ -14,4 +14,5 @@ void initialBindings() {
 
   Get.lazyPut<TextEditingController>(() => TextEditingController());
 
+
 }
