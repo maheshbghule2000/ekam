@@ -1,82 +1,108 @@
-import 'package:classcheck/views/screens/login/login_screen.dart';
-import 'package:classcheck/views/screens/start/start_screen.dart';
+
+
+import 'package:classcheck/views/screens/booking_confirmation/booking_confirmation.dart';
+import 'package:classcheck/views/screens/doctor_details/doctor_details.dart';
+import 'package:classcheck/views/screens/review_booking/review_booking.dart';
+import 'package:classcheck/views/screens/select_package/select_package.dart';
+import 'package:classcheck/views/screens/view_bookings/view_bookings.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../services/app_service.dart';
-
-// final unknownRoute = GetPage(
-//   name: Routes.hometRoute,
-//   page: () => StartScreen(),
-// );
-
+import '../views/screens/start/start_screen.dart';
 class Routes {
-  // static const String hometRoute = "/home";
-  static const String loginRoute = "/login";
+  static const String initalRoute = "/";
+  static const String hometRoute = "/home";
+  static const String doctorDetailsRoute= "/doctor-details";
+ static const String selectPackageRoute= "/select-package";
+  static const String reviewBookingRoute= "/review-booking";
+  static const String bookingConfirmationRoute= "/booking-confirmation";
+  static const String viewBoookingRoute= "/view-booking";
 
   late final AppService appService;
   GoRouter get router => _goRouter;
   Routes(this.appService);
 
   late final GoRouter _goRouter = GoRouter(
-    initialLocation: loginRoute,
+    initialLocation: hometRoute,
     refreshListenable: appService,
     routerNeglect: true,
     routes: <GoRoute>[
-      // GoRoute(
-      //   path: hometRoute,
-      //   builder: (BuildContext context, GoRouterState state) => StartScreen(),
-      // ),
-       GoRoute(
-        path: loginRoute,
-        builder: (BuildContext context, GoRouterState state) => LoginScreen(),
+      GoRoute(
+        path: hometRoute,
+        builder: (BuildContext context, GoRouterState state) => const WelcomeScreen(),
       ),
-      
-      // GoRoute(
-      //   path: phoneRoute,
-      //   builder: (BuildContext context, GoRouterState state) => PhomeScreen(),
-      // ),
+      GoRoute(
+        path: doctorDetailsRoute,
+        builder: (BuildContext context, GoRouterState state) => const DoctorDetailsScreen(),
+      ),
+      GoRoute(
+        path: selectPackageRoute,
+        builder: (BuildContext context, GoRouterState state) => const SelectPackageScreen(),
+      ),
+      GoRoute(
+        path: reviewBookingRoute,
+        builder: (BuildContext context, GoRouterState state) => const ReviewBookingScreen(),
+      ),
+      GoRoute(
+        path: bookingConfirmationRoute,
+        builder: (BuildContext context, GoRouterState state) => const BookingConfirmationScreen(),
+      ),
+      GoRoute(
+        path: viewBoookingRoute,
+        builder: (BuildContext context, GoRouterState state) => const ViewBookingScreen(),
+      ),
     ],
-    // redirect: (context, state) {
-    //   bool isLogedIn = appService.loginState;
-    //   final isInitialized = appService.initialized;
-    //   final subloc = state.subloc;
-    //   final authViewName = appService.authViewname;
-    //   print("object");
-    //   print("subloc :- $subloc");
-    //   print("isLoggedIn :- $isLogedIn");
-    //   print("AuthName :- $authViewName");
-    //   print("IsInitialized :- $isInitialized");
-    //   if (authViewName == "/phone" && subloc == '/') {
-    //     return phoneRoute;
-    //   } else if (authViewName == "/verifyotp" &&
-    //       subloc ==
-    //           "/                                                                                                                                               ") {
-    //     return verifyotpRoute;
-    //   } else if (authViewName == "/org" && subloc == "/org") {
-    //     return orgRoute;
-    //   } else if (authViewName == "/invite" && subloc == "/invite") {
-    //     return initialRoute;
-    //   } else if (authViewName == "/confirmation" && subloc == "/confirmation") {
-    //     return confirmationRoute;
-    //   }
+    redirect: (context, state) {
+      bool isLogedIn = appService.loginState;
+      final isInitialized = appService.initialized;
+      final subloc = state.subloc;
+      final authViewName = appService.authViewname;
+      print("object");
+      print("subloc :- $subloc");
+      print("isLoggedIn :- $isLogedIn");
+      print("AuthName :- $authViewName");
+      print("IsInitialized :- $isInitialized");
 
-    //   // / login then go to particular screeen
-    //   if (isLogedIn && isInitialized && authViewName == "") {
-    //     if (subloc == "/attendance" && authViewName == "") {
-    //       return attendanceRoute;
-    //     } else if (subloc == "/timeentry" && authViewName == "") {
-    //       return timeentryRoute;
-    //     } else if (subloc == "/mark-attendance" && authViewName == "") {
-    //       return markattendanceRoute;
-    //     } else if (subloc == "/payslips" && authViewName == "") {
-    //       return payslipsRoute;
-    //     } else if (subloc == "/approvals" && authViewName == "") {
-    //       return approvalsRoute;
-    //     }
+     if (authViewName == "/home" && subloc == '/') {
+        return hometRoute;
+      } else if (authViewName == "/doctor-details" &&
+          subloc == "/home") {
+        return doctorDetailsRoute;
 
-    //     return attendanceRoute;
-    //   }
-    //   return null;
-    // },
+      } else if (authViewName == "/select-package" &&
+          subloc == "/doctor-details") {
+        return selectPackageRoute;
+      } else if (authViewName == "/review-booking" &&
+          subloc == "/select-package") {
+        return reviewBookingRoute;
+      } else if (authViewName == "/booking-confirmation" &&
+          subloc == "/review-booking") {
+        return bookingConfirmationRoute;
+      } 
+    
+
+      // //login then go to particular screeen
+      // if (isLogedIn && isInitialized && authViewName == "") {
+      //   if (authViewName == "/home" && subloc == '/') {
+      //   return hometRoute;
+      // } else if (authViewName == "/doctor-details" &&
+      //     subloc == "/home") {
+      //   return doctorDetailsRoute;
+
+      // } else if (authViewName == "/select-package" &&
+      //     subloc == "/doctor-details") {
+      //   return selectPackageRoute;
+      // } else if (authViewName == "/review-booking" &&
+      //     subloc == "/select-package") {
+      //   return reviewBookingRoute;
+      // } else if (authViewName == "/booking-confirmation" &&
+      //     subloc == "/review-booking") {
+      //   return bookingConfirmationRoute;
+      // } 
+      //   return hometRoute;
+      // }
+      // return null;
+    },
+    
   );
 }
