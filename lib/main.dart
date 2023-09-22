@@ -84,7 +84,7 @@ class _MyAppState extends State<MyApp> {
               designSize: const Size(360, 690),
               builder: (BuildContext context, child) {
                 return GetMaterialApp.router(
-                  title: 'Ekam',
+                  title: 'Class Check',
                   initialBinding: InitialBinding(),
                   debugShowCheckedModeBanner: false,
                   theme: ThemeData(fontFamily: 'Kumbh Sans'),

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class AppColors {
   static const Color whiteColor = Color(0XFFFFFFFF);
   static const Color bodyColor = Color(0xffE4E4E4);
-    static const Color buttonColor = Color(0XFFa7d0fc);
   static const Color lightWhiteColor = Color.fromARGB(255, 228, 228, 228);
   static const Color blackColor = Color.fromRGBO(0, 0, 0, 1);
   static const Color lightDarkColor = Color.fromRGBO(103, 103, 103, 1);

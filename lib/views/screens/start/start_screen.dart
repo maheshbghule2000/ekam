@@ -1,14 +1,14 @@
-import 'package:classcheck/consts/app_colors.dart';
-import 'package:classcheck/consts/app_sizes.dart';
-import 'package:classcheck/consts/app_strings.dart';
 import 'package:classcheck/controllers/welcome_controller/welcome_controller.dart';
-import 'package:classcheck/views/screens/doctor_details/doctor_details.dart';
 import 'package:classcheck/views/widgets/custom_button_widget.dart';
 import 'package:classcheck/views/widgets/divider_widget.dart';
+import 'package:classcheck/views/widgets/sized_box_widget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import '../../widgets/sized_box_widget.dart';
+import '../../../consts/app_colors.dart';
+import '../../../consts/app_sizes.dart';
+import '../../../consts/app_strings.dart';
 import '../../widgets/text_widget.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -49,7 +49,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return Column(
       children: [
         TextWidget(
-          data: 'Baap',
+          data: 'Baap manager',
           fontWeight: FontWeight.bold,
           context: context,
           fontSize: 50,
@@ -74,21 +74,27 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           Center(
             child: Image.asset(
               'assets/images/doctor.png',
-              // height: 400,
-              // width: 300,
+           
             ),
           ),
+          // Center(
+          //   child: Image.network(
+          //     'https://baap-app-images.s3.ap-south-1.amazonaws.com/scaled_doctor.png',
+          //     height: 300,
+          //     width: 300,
+          //   ),
+          // ),
+        
         
           CustomButtonWidget(
               data: 'Next..',
+              color: AppColors.containerColor,
               context: context,
               fontSize: 25,
               height: 50,
-              
-              borderRadius: 50,
+              borderRadius: 30,
               width: MediaQuery.of(context).size.width,
               onClick: () {
-             
                 _welcomeController.gotoDoctorDetailsScreen(context);
               }),
         ],

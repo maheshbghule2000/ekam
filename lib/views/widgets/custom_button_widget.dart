@@ -18,7 +18,7 @@ class CustomButtonWidget extends GetResponsiveView {
     this.borderRadius = 0,
     this.fontWeight = FontWeight.normal,
     this.fontSize = 18,
-    this.backgroundColor = AppColors.buttonColor,
+    this.backgroundColor = AppColors.blackColor,
     this.color = AppColors.blackColor,
   }) : super(key: key);
 

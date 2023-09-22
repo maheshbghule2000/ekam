@@ -15,6 +15,7 @@ void initialBindings() {
 
   Get.lazyPut<TextEditingController>(() => TextEditingController());
   Get.lazyPut<WelcomeController>(() => WelcomeController());
+  // Get.lazyPut(()=>WelcomeController());
 
 
 }
