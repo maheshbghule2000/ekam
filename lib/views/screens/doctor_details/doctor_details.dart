@@ -1,3 +1,4 @@
+import 'package:classcheck/consts/app_sizes.dart';
 import 'package:classcheck/views/widgets/appbar_widet.dart';
 import 'package:classcheck/views/widgets/text_widget.dart';
 
@@ -15,16 +16,25 @@ class DoctorDetailsScreen extends StatefulWidget {
 class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // AppBarWidget(context: context, onClick: (){}),
-        DoctorProfileWidget(
-          imageUrl: '',
-          onTap: (){},
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding:  EdgeInsets.only(top: AppSizes.getPhoneSize(30),left: AppSizes.getPhoneSize(20)),
+          child: Column(
+            children: [
+              AppBarWidget(context: context,
+              data: 'Book Appointment',
+               onClick: (){}),
+              DoctorProfileWidget(
+                imageUrl: 'https://hireforekam.s3.ap-south-1.amazonaws.com/doctors/1-Doctor.png',
+                onTap: (){},
+              ),
+              TextWidget(data: 'data', context: context)
+              
+              ],
+          ),
         ),
-        TextWidget(data: 'data', context: context)
-        
-        ],
+      ),
     );
   }
 }
