@@ -48,6 +48,7 @@ class DoctorProfileWidget extends StatelessWidget {
             ),
             Positioned(
               bottom: 20,
+             
               right: 0,
               child: IconButton(
                 icon: Icon(

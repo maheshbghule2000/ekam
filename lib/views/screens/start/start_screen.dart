@@ -1,4 +1,5 @@
 import 'package:classcheck/controllers/welcome_controller/welcome_controller.dart';
+import 'package:classcheck/views/screens/doctor_details/doctor_details.dart';
 import 'package:classcheck/views/widgets/custom_button_widget.dart';
 import 'package:classcheck/views/widgets/divider_widget.dart';
 import 'package:classcheck/views/widgets/sized_box_widget.dart';
@@ -93,9 +94,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               fontSize: 25,
               height: 50,
               borderRadius: 30,
+              backgroundColor: AppColors.blackColor,
               width: MediaQuery.of(context).size.width,
               onClick: () {
-                _welcomeController.gotoDoctorDetailsScreen(context);
+                   Navigator.push<void>(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) =>
+                            DoctorDetailsScreen(),
+                      ),
+                    );
+                // _welcomeController.gotoDoctorDetailsScreen(context);
               }),
         ],
       ),
