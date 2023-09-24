@@ -1,5 +1,6 @@
-import 'package:classcheck/views/widgets/sized_box_widget.dart';
-import 'package:classcheck/views/widgets/text_widget.dart';
+
+import 'package:ekam/views/widgets/sized_box_widget.dart';
+import 'package:ekam/views/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../consts/app_colors.dart';

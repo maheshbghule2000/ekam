@@ -1,11 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:classcheck/consts/app_colors.dart';
-import 'package:classcheck/views/widgets/sized_box_widget.dart';
-import 'package:classcheck/views/widgets/text_widget.dart';
-
-
+import 'package:ekam/views/widgets/sized_box_widget.dart';
+import 'package:ekam/views/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../consts/app_colors.dart';
 
 class DoctorProfileWidget extends StatelessWidget {
   final String imageUrl;

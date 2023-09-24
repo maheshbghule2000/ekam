@@ -1,7 +1,8 @@
 
-import 'package:classcheck/controllers/welcome_controller/welcome_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../controllers/welcome_controller/welcome_controller.dart';
 
 
 class InitialBinding extends Bindings {

@@ -1,8 +1,9 @@
 import 'dart:async';
-import 'package:classcheck/services/app_service.dart';
-import 'package:classcheck/services/auth_service.dart';
-import 'package:classcheck/utils/initial_binding.dart';
-import 'package:classcheck/utils/routes.dart';
+
+import 'package:ekam/services/app_service.dart';
+import 'package:ekam/services/auth_service.dart';
+import 'package:ekam/utils/initial_binding.dart';
+import 'package:ekam/utils/routes.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

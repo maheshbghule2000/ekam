@@ -1,4 +1,4 @@
-import 'package:classcheck/utils/app_utils.dart';
+import 'package:ekam/utils/app_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../consts/app_colors.dart';

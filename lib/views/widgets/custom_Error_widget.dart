@@ -1,12 +1,12 @@
-import 'package:classcheck/consts/app_sizes.dart';
-import 'package:classcheck/views/widgets/text_widget.dart';
+
+import 'package:ekam/views/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 
 import '../../consts/app_colors.dart';
+import '../../consts/app_sizes.dart';
 import 'divider_widget.dart';
 import 'icon_widget.dart';
 

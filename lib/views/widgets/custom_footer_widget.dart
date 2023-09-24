@@ -1,9 +1,10 @@
-import 'package:classcheck/consts/app_colors.dart';
-import 'package:classcheck/views/widgets/text_widget.dart';
+
+import 'package:ekam/views/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../consts/app_colors.dart';
 import '../../consts/app_sizes.dart';
 import '../../consts/app_strings.dart';
 import 'divider_widget.dart';

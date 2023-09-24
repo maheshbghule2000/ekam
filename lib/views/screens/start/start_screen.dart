@@ -1,6 +1,4 @@
-import 'package:classcheck/controllers/welcome_controller/welcome_controller.dart';
-import 'package:classcheck/views/widgets/divider_widget.dart';
-import 'package:classcheck/views/widgets/sized_box_widget.dart';
+
 import 'package:lottie/lottie.dart';
 
 import 'package:flutter/material.dart';
@@ -9,6 +7,9 @@ import 'package:get/get.dart';
 import '../../../consts/app_colors.dart';
 import '../../../consts/app_sizes.dart';
 import '../../../consts/app_strings.dart';
+import '../../../controllers/welcome_controller/welcome_controller.dart';
+import '../../widgets/divider_widget.dart';
+import '../../widgets/sized_box_widget.dart';
 import '../../widgets/text_widget.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -79,21 +80,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          color: AppColors.DarkGrayColor,
+      height: AppSizes.getPhoneSize(350),
           child: Center(
             child: Lottie.asset(
               'assets/images/animation_lmx68754.json',
             ),
           ),
-        ),
-
-        // Center(
-        //   child: Image.network(
-        //     'https://baap-app-images.s3.ap-south-1.amazonaws.com/scaled_doctor.png',
-        //     height: 300,
-        //     width: 300,
-        //   ),
-        // ),
+        )
       ],
     );
   }

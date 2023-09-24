@@ -1,12 +1,11 @@
-
-import 'package:classcheck/views/screens/doctor_details/doctor_details.dart';
-import 'package:classcheck/views/screens/start/start_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../services/app_service.dart';
 import '../views/screens/booking_confirmation/booking_confirmation.dart';
+import '../views/screens/doctor_details/doctor_details.dart';
 import '../views/screens/review_booking/review_booking.dart';
 import '../views/screens/select_package/select_package.dart';
+import '../views/screens/start/start_screen.dart';
 import '../views/screens/view_bookings/view_bookings.dart';
 class Routes {
   static const String initalRoute = "/";

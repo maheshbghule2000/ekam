@@ -1,8 +1,10 @@
-import 'package:classcheck/consts/app_colors.dart';
-import 'package:classcheck/consts/app_images.dart';
-import 'package:classcheck/consts/app_sizes.dart';
-import 'package:classcheck/views/widgets/text_widget.dart';
+
 import 'package:flutter/material.dart';
+import '../../../consts/app_colors.dart';
+import '../../../consts/app_images.dart';
+import '../../../consts/app_sizes.dart';
+import '../../widgets/text_widget.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

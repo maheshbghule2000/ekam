@@ -1,5 +1,5 @@
 
-import 'package:classcheck/views/widgets/text_widget.dart';
+import 'package:ekam/views/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get_state_manager/src/simple/get_responsive.dart';

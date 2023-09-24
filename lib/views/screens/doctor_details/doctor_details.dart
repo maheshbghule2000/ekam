@@ -1,11 +1,10 @@
-import 'package:classcheck/consts/app_sizes.dart';
-import 'package:classcheck/views/screens/select_package/select_package.dart';
-import 'package:classcheck/views/widgets/appbar_widet.dart';
-import 'package:classcheck/views/widgets/text_widget.dart';
 
 import 'package:flutter/material.dart';
-
+import '../../../consts/app_sizes.dart';
+import '../../widgets/appbar_widet.dart';
+import '../../widgets/text_widget.dart';
 import '../../widgets/doctor_details_widget.dart';
+import '../select_package/select_package.dart';
 
 class DoctorDetailsScreen extends StatefulWidget {
   const DoctorDetailsScreen({super.key});

@@ -1,4 +1,4 @@
-import 'package:classcheck/views/widgets/sized_box_widget.dart';
+import 'package:ekam/views/widgets/sized_box_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../consts/app_sizes.dart';

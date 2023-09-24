@@ -1,12 +1,10 @@
 
-import 'package:classcheck/consts/app_colors.dart';
-import 'package:classcheck/consts/app_sizes.dart';
-import 'package:classcheck/consts/app_strings.dart';
-import 'package:classcheck/views/widgets/sized_box_widget.dart';
-import 'package:classcheck/views/widgets/text_widget.dart';
+import 'package:ekam/views/widgets/sized_box_widget.dart';
+import 'package:ekam/views/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../../services/auth_service.dart';
+import '../../consts/app_colors.dart';
+import '../../consts/app_sizes.dart';
+import '../../consts/app_strings.dart';
 
 
 class DrawerWidget extends StatefulWidget {

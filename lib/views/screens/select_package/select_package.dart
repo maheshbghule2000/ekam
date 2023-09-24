@@ -1,14 +1,12 @@
-import 'package:classcheck/consts/app_colors.dart';
-import 'package:classcheck/consts/app_sizes.dart';
-import 'package:classcheck/views/screens/doctor_details/doctor_details.dart';
-import 'package:classcheck/views/screens/start/start_screen.dart';
-import 'package:classcheck/views/widgets/custom_button_widget.dart';
-import 'package:classcheck/views/widgets/select_package_widget.dart';
-import 'package:classcheck/views/widgets/time_picker_widget.dart';
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
+import '../../../consts/app_colors.dart';
+import '../../../consts/app_sizes.dart';
+import '../../widgets/custom_button_widget.dart';
+import '../../widgets/select_package_widget.dart';
 import '../../widgets/sized_box_widget.dart';
 import '../../widgets/text_widget.dart';
+import '../start/start_screen.dart';
 
 class SelectPackageScreen extends StatefulWidget {
   const SelectPackageScreen({super.key});

@@ -1,5 +1,5 @@
 
-import 'package:classcheck/views/widgets/sized_box_widget.dart';
+import 'package:ekam/views/widgets/sized_box_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
