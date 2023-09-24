@@ -1,8 +1,7 @@
 import 'package:classcheck/controllers/welcome_controller/welcome_controller.dart';
-import 'package:classcheck/views/screens/doctor_details/doctor_details.dart';
-import 'package:classcheck/views/widgets/custom_button_widget.dart';
 import 'package:classcheck/views/widgets/divider_widget.dart';
 import 'package:classcheck/views/widgets/sized_box_widget.dart';
+import 'package:lottie/lottie.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,14 +21,15 @@ class WelcomeScreen extends StatefulWidget {
 final WelcomeController _welcomeController = Get.find();
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-   @override
+  @override
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 3), () {
       _welcomeController.gotoDoctorDetailsScreen(context);
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +45,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             ),
             _welcomeTextWidget(context),
             _imageWidget(context),
-
             _bottomWidget(context),
             // _bottomWidget(context)
           ],
@@ -58,7 +57,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return Column(
       children: [
         TextWidget(
-          data: 'Baap manager',
+          data: 'Baap Doctor',
           fontWeight: FontWeight.bold,
           context: context,
           fontSize: 50,
@@ -79,12 +78,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Center(
-          child: Image.asset(
-            'assets/images/doctor.png',
-         
+        Container(
+          color: AppColors.DarkGrayColor,
+          child: Center(
+            child: Lottie.asset(
+              'assets/images/animation_lmx68754.json',
+            ),
           ),
         ),
+
         // Center(
         //   child: Image.network(
         //     'https://baap-app-images.s3.ap-south-1.amazonaws.com/scaled_doctor.png',
@@ -92,27 +94,27 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         //     width: 300,
         //   ),
         // ),
-      
-      
-        // CustomButtonWidget(
-        //     data: 'Next..',
-        //     color: AppColors.containerColor,
-        //     context: context,
-        //     fontSize: 25,
-        //     height: 50,
-        //     borderRadius: 30,
-        //     backgroundColor: AppColors.buttonColor,
-        //     width: MediaQuery.of(context).size.width,
-        //     onClick: () {
-        //         //  Navigator.push<void>(
-        //         //     context,
-        //         //     MaterialPageRoute<void>(
-        //         //       builder: (BuildContext context) =>
-        //         //           DoctorDetailsScreen(),
-        //         //     ),
-        //         //   );
-        //       _welcomeController.gotoDoctorDetailsScreen(context);
-        //     }),
+      ],
+    );
+  }
+
+  _imageWidgett(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Center(
+          child: Lottie.asset(
+            'assets/images/doctor.png',
+          ),
+        ),
+
+        // Center(
+        //   child: Image.network(
+        //     'https://baap-app-images.s3.ap-south-1.amazonaws.com/scaled_doctor.png',
+        //     height: 300,
+        //     width: 300,
+        //   ),
+        // ),
       ],
     );
   }

@@ -28,25 +28,23 @@ class AppBarWidget extends StatelessWidget {
               }
             },
             child: Container(
-              width: AppSizes.getPhoneSize(60),
-              height: AppSizes.getPhoneSize(60),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                border: Border.all(
-                  color: Colors.black,
-                  width: 2.0,
-                ),
-                color: AppColors.whiteColor,
+            width: AppSizes.getPhoneSize(50),
+            height: AppSizes.getPhoneSize(50),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: AppColors.grayColor,
+                width: 2.0,
               ),
-              child: const Center(
-                child: Icon(
-                  Icons.arrow_back,
-                  color: Colors.black,
-                  size: 30,
-                ),
-              ),
-          
+              borderRadius: BorderRadius.circular(40),
             ),
+            child: const Center(
+              child: Icon(
+                Icons.arrow_back,
+                size: 20,
+                color: Colors.black,
+              ),
+            ),
+          ),
           ),
           SizedBoxWidget(width: 40,),
           TextWidget(context: context, data: data??'',
