@@ -1,3 +1,5 @@
+import 'package:ekam/models/doctor_details/doctor_details_model.dart';
+import 'package:ekam/services/doctor_details/doctor_details_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
@@ -12,6 +14,7 @@ class DoctorDetailsController extends GetxController {
     context.go(Routes.selectPackageRoute);
     refresh();
   }
+
   void gotoWelcomeScreen(BuildContext context) {
     context.go(Routes.hometRoute);
     refresh();
@@ -32,6 +35,7 @@ class DoctorDetailsController extends GetxController {
     selectedDate = date;
     refresh();
   }
+
   final RxString selectedTime = ''.obs;
 
   void selectTime(String time) {
@@ -53,4 +57,28 @@ class DoctorDetailsController extends GetxController {
 
   //   return timeSlots;
   // }
+  final DoctorDetailsRepository doctorDetailsRepository =
+      DoctorDetailsRepository();
+  Rx<DoctorDetailsResponseModel> doctorDetailsResponseModel =
+      DoctorDetailsResponseModel().obs;
+  final _isDataLoading = false.obs;
+  bool get isDataLoading => _isDataLoading.value;
+  final _errorMessage = "Data Not Found".obs;
+  String get errorMessage => _errorMessage.value;
+
+  getDoctorDetails() async {
+    _isDataLoading(true);
+    var response = await doctorDetailsRepository.getDoctorDetails();
+    response.fold(
+      (failure) {
+        _errorMessage.value = failure.message;
+        _isDataLoading(false);
+      },
+      (data) async {
+        doctorDetailsResponseModel.value = data;
+        _isDataLoading(false);
+        print(data);
+      },
+    );
+  }
 }
