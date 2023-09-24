@@ -22,6 +22,14 @@ class WelcomeScreen extends StatefulWidget {
 final WelcomeController _welcomeController = Get.find();
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
+   @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(const Duration(seconds: 4), () {
+      _welcomeController.gotoDoctorDetailsScreen(context);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +44,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               height: 40,
             ),
             _welcomeTextWidget(context),
-            _requestSentWidget(context),
+            _imageWidget(context),
 
             _bottomWidget(context),
             // _bottomWidget(context)
@@ -67,47 +75,45 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     );
   }
 
-  _requestSentWidget(BuildContext context) {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Image.asset(
-              'assets/images/doctor.png',
-           
-            ),
+  _imageWidget(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Center(
+          child: Image.asset(
+            'assets/images/doctor.png',
+         
           ),
-          // Center(
-          //   child: Image.network(
-          //     'https://baap-app-images.s3.ap-south-1.amazonaws.com/scaled_doctor.png',
-          //     height: 300,
-          //     width: 300,
-          //   ),
-          // ),
-        
-        
-          CustomButtonWidget(
-              data: 'Next..',
-              color: AppColors.containerColor,
-              context: context,
-              fontSize: 25,
-              height: 50,
-              borderRadius: 30,
-              backgroundColor: AppColors.blackColor,
-              width: MediaQuery.of(context).size.width,
-              onClick: () {
-                   Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) =>
-                            DoctorDetailsScreen(),
-                      ),
-                    );
-                // _welcomeController.gotoDoctorDetailsScreen(context);
-              }),
-        ],
-      ),
+        ),
+        // Center(
+        //   child: Image.network(
+        //     'https://baap-app-images.s3.ap-south-1.amazonaws.com/scaled_doctor.png',
+        //     height: 300,
+        //     width: 300,
+        //   ),
+        // ),
+      
+      
+        // CustomButtonWidget(
+        //     data: 'Next..',
+        //     color: AppColors.containerColor,
+        //     context: context,
+        //     fontSize: 25,
+        //     height: 50,
+        //     borderRadius: 30,
+        //     backgroundColor: AppColors.buttonColor,
+        //     width: MediaQuery.of(context).size.width,
+        //     onClick: () {
+        //         //  Navigator.push<void>(
+        //         //     context,
+        //         //     MaterialPageRoute<void>(
+        //         //       builder: (BuildContext context) =>
+        //         //           DoctorDetailsScreen(),
+        //         //     ),
+        //         //   );
+        //       _welcomeController.gotoDoctorDetailsScreen(context);
+        //     }),
+      ],
     );
   }
 
