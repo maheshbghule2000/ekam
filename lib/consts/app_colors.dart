@@ -6,11 +6,11 @@ class AppColors {
   static const Color faintBlueColor = Color(0xffDBEAFF);
   static const Color lightWhiteColor = Color.fromARGB(255, 228, 228, 228);
   static const Color blackColor = Color.fromRGBO(0, 0, 0, 1);
-  static const Color lightDarkColor = Color.fromRGBO(103, 103, 103, 1);
+  static const Color lightGrayDarkColor = Color.fromRGBO(103, 103, 103, 1);
   static const Color DarkGrayColor = Color.fromRGBO(32, 32, 32, 1);
   static const Color dividerColor = Color.fromRGBO(217, 212, 212, 1);
   static const Color text = Color(0xffE4E4E4);
-  static const Color faintGrayColor= Color(0xffB9B9B9);
+  static const Color faintGrayColor = Color(0xffB9B9B9);
   static const Color containerColor = Color(0xffEAEAEA);
   static const Color red = Colors.red;
 

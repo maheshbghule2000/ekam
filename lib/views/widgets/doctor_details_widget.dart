@@ -46,9 +46,8 @@ class DoctorProfileWidget extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: 20,
-             
-              right: 0,
+              bottom: 5,
+              right: -3,
               child: IconButton(
                 icon: Icon(
                   Icons.verified,
@@ -72,7 +71,7 @@ class DoctorProfileWidget extends StatelessWidget {
             ),
             TextWidget(
               context: context,
-              data: doctorName??'Dr. Jonny Wilson',
+              data: doctorName ?? 'Dr. Jonny Wilson',
               fontWeight: FontWeight.bold,
               fontSize: 25,
             ),
@@ -81,7 +80,7 @@ class DoctorProfileWidget extends StatelessWidget {
             ),
             TextWidget(
               context: context,
-              data: speciality ??'Dentist',
+              data: speciality ?? 'Dentist',
               color: AppColors.grayColor,
               fontSize: 20,
             ),
@@ -97,14 +96,18 @@ class DoctorProfileWidget extends StatelessWidget {
                   color: Colors.blue,
                   size: 15.h,
                 ),
-                    SizedBoxWidget(width: 2,),
+                SizedBoxWidget(
+                  width: 2,
+                ),
                 TextWidget(
                   context: context,
-                  data: location??'New York,United State',
+                  data: location ?? 'New York,United State',
                   fontSize: 15,
                   color: AppColors.grayColor,
                 ),
-               SizedBoxWidget(width: 2,),
+                SizedBoxWidget(
+                  width: 2,
+                ),
                 const Icon(Icons.flag, size: 20, color: Colors.blue)
               ],
             )

@@ -1,7 +1,10 @@
-
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/get_instance.dart';
 import '../../../consts/app_colors.dart';
 import '../../../consts/app_sizes.dart';
+import '../../../controllers/select_package/select_package_controller.dart';
+import '../../widgets/appbar_widet.dart';
 import '../../widgets/custom_button_widget.dart';
 import '../../widgets/select_package_widget.dart';
 import '../../widgets/sized_box_widget.dart';
@@ -15,6 +18,8 @@ class SelectPackageScreen extends StatefulWidget {
   State<SelectPackageScreen> createState() => _SelectPackageScreenState();
 }
 
+final SelectPackageController _selectPackageController = Get.find();
+
 class _SelectPackageScreenState extends State<SelectPackageScreen> {
   bool selectedValue = false;
   @override
@@ -24,9 +29,9 @@ class _SelectPackageScreenState extends State<SelectPackageScreen> {
         backgroundColor: AppColors.containerColor,
         body: Padding(
           padding: EdgeInsets.only(
-            top: AppSizes.getPhoneSize(50),
-            left: AppSizes.getPhoneSize(30),
-            right: AppSizes.getPhoneSize(30),
+            top: AppSizes.getPhoneSize(30),
+            left: AppSizes.getPhoneSize(20),
+            right: AppSizes.getPhoneSize(20),
             bottom: AppSizes.getPhoneSize(30),
           ),
           child: Column(
@@ -38,10 +43,7 @@ class _SelectPackageScreenState extends State<SelectPackageScreen> {
               ),
               _drapdownWidget(context),
               _cardWidget(context),
-
-              //  SizedBoxWidget(height: 60,),
               Spacer(),
-
               _nextButtonWidget(context),
             ],
           ),
@@ -51,47 +53,20 @@ class _SelectPackageScreenState extends State<SelectPackageScreen> {
   }
 
   _selectedWidget(BuildContext context) {
-    return Row(
-      children: [
-        InkWell(
-          onTap: () {
-               Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) =>
-                            WelcomeScreen(),
-                      ),
-                    );
-          },
-          child: Container(
-            width: AppSizes.getPhoneSize(50),
-            height: AppSizes.getPhoneSize(50),
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: AppColors.grayColor,
-                width: 2.0,
-              ),
-              borderRadius: BorderRadius.circular(40),
-            ),
-            child: const Center(
-              child: Icon(
-                Icons.arrow_back,
-                size: 20,
-                color: Colors.black,
-              ),
-            ),
-          ),
-        ),
-        SizedBoxWidget(
-          width: AppSizes.getPhoneSize(60),
-        ),
-        TextWidget(
-            context: context,
-            color: AppColors.blackColor,
-            fontSize: AppSizes.getPhoneSize(25),
-            data: 'select package'),
-      ],
-    );
+    return AppBarWidget(
+        context: context,
+        data: 'Select Package',
+        fontSize: 20,
+        onClick: () {
+          _selectPackageController.gotoDoctorDetailsScreen(context);
+          // Navigator.push<void>(
+          //   context,
+          //   MaterialPageRoute<void>(
+          //     builder: (BuildContext context) =>
+          //         SelectPackageScreen(),
+          //   ),
+          // );
+        });
   }
 
   _drapdownWidget(BuildContext context) {
@@ -128,7 +103,6 @@ class _DropdownWithIconsState extends State<DropdownWithIcons> {
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
       focusColor: AppColors.blackColor,
- 
       value: selectedValue,
       onChanged: (newValue) {
         setState(() {
@@ -139,7 +113,7 @@ class _DropdownWithIconsState extends State<DropdownWithIcons> {
         fillColor: AppColors.DarkGrayColor,
         hoverColor: AppColors.containerColor,
         prefixIcon: Icon(Icons.access_alarm), // Prefix icon
-focusColor: AppColors.DarkGrayColor,
+        focusColor: AppColors.DarkGrayColor,
         border: OutlineInputBorder(),
       ),
       items: <String>[
@@ -213,8 +187,9 @@ _nextButtonWidget(BuildContext context) {
           fontWeight: FontWeight.bold,
           fontSize: AppSizes.getPhoneSize(20),
           data: 'Next',
-        
-          onClick: () {}),
+          onClick: () {
+            _selectPackageController.gotoReviwBooking(context);
+          }),
     ],
   );
 }

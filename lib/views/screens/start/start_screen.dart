@@ -1,6 +1,7 @@
 
 import 'package:lottie/lottie.dart';
 
+import 'package:ekam/views/widgets/custom_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -14,11 +15,9 @@ import '../../widgets/text_widget.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
-
   @override
   State<WelcomeScreen> createState() => _WelcomeScreenState();
 }
-
 final WelcomeController _welcomeController = Get.find();
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
@@ -26,6 +25,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   void initState() {
     super.initState();
 
+   
     Future.delayed(const Duration(seconds: 3), () {
       _welcomeController.gotoDoctorDetailsScreen(context);
     });
@@ -58,7 +58,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return Column(
       children: [
         TextWidget(
-          data: 'Baap Doctor',
+          data: 'Ekam',
           fontWeight: FontWeight.bold,
           context: context,
           fontSize: 50,
@@ -75,11 +75,24 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     );
   }
 
+_nextButtonWidget(BuildContext context){
+  return CustomButtonWidget(context: context, data: 'Next',
+  
+  width: MediaQuery.of(context).size.width,
+  height: 50,
+  color: AppColors.whiteColor,
+  backgroundColor: AppColors.buttonColor,
+  borderRadius: 50,
+   onClick: (){
+
+ _welcomeController.gotoDoctorDetailsScreen(context);
+  });
+}
   _imageWidget(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
+        SizedBox(
       height: AppSizes.getPhoneSize(350),
           child: Center(
             child: Lottie.asset(
@@ -91,26 +104,37 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     );
   }
 
-  _imageWidgett(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Center(
-          child: Lottie.asset(
-            'assets/images/doctor.png',
-          ),
-        ),
-
-        // Center(
-        //   child: Image.network(
-        //     'https://baap-app-images.s3.ap-south-1.amazonaws.com/scaled_doctor.png',
-        //     height: 300,
-        //     width: 300,
-        //   ),
-        // ),
-      ],
-    );
-  }
+//   _imageWidget(BuildContext context) {
+//     return Column(
+//       mainAxisAlignment: MainAxisAlignment.center,
+//       children: [
+//         Center(
+//           child: InkWell(
+//             onTap: (){
+//                 Navigator.push<void>(
+//                       context,
+//                       MaterialPageRoute<void>(
+//                         builder: (BuildContext context) =>
+//                             const WelcomeScreen(),
+//                       ),
+//                     );
+//             },
+//             child: Image.asset(
+//               'assets/images/doctor.png',
+//             ),
+//           ),
+//         ),
+//  _nextButtonWidget(context),
+//         // Center(
+//         //   child: Image.network(
+//         //     'https://baap-app-images.s3.ap-south-1.amazonaws.com/scaled_doctor.png',
+//         //     height: 300,
+//         //     width: 300,
+//         //   ),
+//         // ),
+//       ],
+//     );
+//   }
 
   _bottomWidget(BuildContext context) {
     return Padding(
@@ -123,7 +147,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           TextWidget(
             context: context,
             data: AppStrings.poweredBy,
-            color: AppColors.lightDarkColor,
+            color: AppColors.lightGrayDarkColor,
             fontSize: AppSizes.bodyLargeTextSizePhone.sp,
           ),
           TextWidget(
@@ -151,4 +175,5 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       ),
     );
   }
+
 }

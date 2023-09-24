@@ -3,13 +3,18 @@ import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import '../../utils/routes.dart';
 
-class SelectPAckageController extends GetxController {
+class SelectPackageController extends GetxController {
  
 
-  void gotoDoctorDetailsScreen(BuildContext context) {
+  void gotoReviwBooking(BuildContext context) {
+    context.go(Routes.reviewBookingRoute);
+    refresh();
+  }
+   void gotoDoctorDetailsScreen(BuildContext context) {
     context.go(Routes.doctorDetailsRoute);
     refresh();
   }
+
 
   
 }

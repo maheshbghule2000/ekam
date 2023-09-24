@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SizedBoxWidget extends StatelessWidget {
-  SizedBoxWidget({
+  const SizedBoxWidget({
     Key? key,
     this.width,
     this.height,
