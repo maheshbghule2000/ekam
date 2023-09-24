@@ -25,6 +25,12 @@ final DoctorDetailsController _doctorDeatilsController =
 
 class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
   @override
+  void initState() {
+    _doctorDeatilsController.doctorDetails();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -35,7 +41,6 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
             bottom: AppSizes.getPhoneSize(30),
           ),
           child: Column(
-          
             children: [
               AppBarWidget(
                   context: context,
@@ -55,49 +60,52 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                 height: 10,
               ),
               Padding(
-                padding: EdgeInsets.only(
-                  right: AppSizes.getPhoneSize(20),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    DoctorProfileWidget(
-                      imageUrl:
-                          "https://hireforekam.s3.ap-south-1.amazonaws.com/doctors/1-Doctor.png",
-                      onTap: () {},
-                    ),
-                    SizedBoxWidget(
-                      height: 5,
-                    ),
-                    _dividerWidget(context),
-                    SizedBoxWidget(
-                      height: 10,
-                    ),
-                    _aboutDoctorWidget(context),
-                    SizedBoxWidget(
-                      height: 15,
-                    ),
-                    _bookappointment(context),
-                    _dayWidget(context),
-                    TextWidget(
-                      context: context,
-                      data: 'Time',
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.blackColor,
-                      fontSize: 18,
-                    ),
-                    // _timeWidget(context)
+                  padding: EdgeInsets.only(
+                    right: AppSizes.getPhoneSize(20),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Obx(() => _doctorDeatilsController.isDataLoading
+                          ? Center(child: CircularProgressIndicator())
+                          : DoctorProfileWidget(
+                              imageUrl: _doctorDeatilsController
+                                      .doctorDetailsResponseModel.value.image ??
+                                  "https://hireforekam.s3.ap-south-1.amazonaws.com/doctors/1-Doctor.png",
+                              doctorName: _doctorDeatilsController
+                                  .doctorDetailsResponseModel.value.doctorName,
+                              onTap: () {},
+                            )),
+                      SizedBoxWidget(
+                        height: 5,
+                      ),
+                      _dividerWidget(context),
+                      SizedBoxWidget(
+                        height: 10,
+                      ),
+                      _aboutDoctorWidget(context),
+                      SizedBoxWidget(
+                        height: 15,
+                      ),
+                      _bookappointment(context),
+                      _dayWidget(context),
+                      TextWidget(
+                        context: context,
+                        data: 'Time',
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.blackColor,
+                        fontSize: 18,
+                      ),
+                      // _timeWidget(context)
 
-                  
-                    SizedBoxWidget(
-                      height: 5,
-                    ),
-                  ],
-                ),
-              ),
+                      SizedBoxWidget(
+                        height: 5,
+                      ),
+                    ],
+                  )),
               Spacer(),
-               _nextButtonWidget(context),
+              _nextButtonWidget(context),
             ],
           ),
         ),
@@ -291,7 +299,9 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
   // }
   _nextButtonWidget(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.only(   right: AppSizes.getPhoneSize(20),),
+      padding: EdgeInsets.only(
+        right: AppSizes.getPhoneSize(20),
+      ),
       child: CustomButtonWidget(
           context: context,
           data: 'Make Appointment',

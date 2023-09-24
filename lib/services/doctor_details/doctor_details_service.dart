@@ -9,7 +9,8 @@ import '../api/api_exception.dart';
 class DoctorDetailsRepository {
   final _apiManager = ApiManager();
 
-  Future<Either<Failure, DoctorDetailsResponseModel>> getDoctorDetails() async {
+  Future<Either<Failure, DoctorDetailsResponseModel>>
+      getDoctorDetails() async {
     try {
       var jsonResponse = await _apiManager.get(ApiEndpoints.doctorDetails);
       var response = DoctorDetailsResponseModel.fromJson(jsonResponse);
@@ -22,3 +23,4 @@ class DoctorDetailsRepository {
     }
   }
 }
+

@@ -66,7 +66,7 @@ class DoctorDetailsController extends GetxController {
   final _errorMessage = "Data Not Found".obs;
   String get errorMessage => _errorMessage.value;
 
-  getDoctorDetails() async {
+  doctorDetails() async {
     _isDataLoading(true);
     var response = await doctorDetailsRepository.getDoctorDetails();
     response.fold(
