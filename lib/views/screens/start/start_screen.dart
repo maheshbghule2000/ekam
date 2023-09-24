@@ -1,5 +1,5 @@
 
-import 'package:lottie/lottie.dart';
+// import 'package:lottie/lottie.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,11 +14,9 @@ import '../../widgets/text_widget.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
-
   @override
   State<WelcomeScreen> createState() => _WelcomeScreenState();
 }
-
 final WelcomeController _welcomeController = Get.find();
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
@@ -26,6 +24,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   void initState() {
     super.initState();
 
+    //  Navigator.push<void>(
+    //                   context,
+    //                   MaterialPageRoute<void>(
+    //                     builder: (BuildContext context) =>
+    //                         WelcomeScreen(),
+    //                   ),
+    //                 );
     Future.delayed(const Duration(seconds: 3), () {
       _welcomeController.gotoDoctorDetailsScreen(context);
     });
@@ -75,32 +80,32 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     );
   }
 
+  // _imageWidget(BuildContext context) {
+  //   return Column(
+  //     mainAxisAlignment: MainAxisAlignment.center,
+  //     children: [
+  //       SizedBox(
+  //     height: AppSizes.getPhoneSize(350),
+  //         child: Center(
+  //           child: Lottie.asset(
+  //             'assets/images/animation_lmx68754.json',
+  //           ),
+  //         ),
+  //       )
+  //     ],
+  //   );
+  // }
+
   _imageWidget(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-      height: AppSizes.getPhoneSize(350),
-          child: Center(
-            child: Lottie.asset(
-              'assets/images/animation_lmx68754.json',
-            ),
-          ),
-        )
-      ],
-    );
-  }
-
-  _imageWidgett(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
         Center(
-          child: Lottie.asset(
+          child: Image.asset(
             'assets/images/doctor.png',
           ),
         ),
-
+ _dividerWidget(context),
         // Center(
         //   child: Image.network(
         //     'https://baap-app-images.s3.ap-south-1.amazonaws.com/scaled_doctor.png',

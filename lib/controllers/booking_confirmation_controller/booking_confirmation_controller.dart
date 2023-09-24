@@ -6,8 +6,8 @@ import '../../utils/routes.dart';
 class BookingConfirmationController extends GetxController {
  
 
-  void gotoDoctorDetailsScreen(BuildContext context) {
-    context.go(Routes.doctorDetailsRoute);
+  void gotoViewBookings(BuildContext context) {
+    context.go(Routes.viewBoookingRoute);
     refresh();
   }
 

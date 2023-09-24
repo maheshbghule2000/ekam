@@ -6,8 +6,8 @@ import '../../utils/routes.dart';
 class SelectPAckageController extends GetxController {
  
 
-  void gotoDoctorDetailsScreen(BuildContext context) {
-    context.go(Routes.doctorDetailsRoute);
+  void gotoReviwBooking(BuildContext context) {
+    context.go(Routes.reviewBookingRoute);
     refresh();
   }
 

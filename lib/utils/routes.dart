@@ -15,11 +15,9 @@ class Routes {
   static const String reviewBookingRoute= "/review-booking";
   static const String bookingConfirmationRoute= "/booking-confirmation";
   static const String viewBoookingRoute= "/view-booking";
-
   late final AppService appService;
   GoRouter get router => _goRouter;
   Routes(this.appService);
-
   late final GoRouter _goRouter = GoRouter(
     initialLocation: hometRoute,
     refreshListenable: appService,
@@ -31,7 +29,7 @@ class Routes {
       ),
       GoRoute(
         path: doctorDetailsRoute,
-        builder: (BuildContext context, GoRouterState state) => const DoctorDetailsScreen(),
+        builder: (BuildContext context, GoRouterState state) =>  const DoctorDetailsScreen(),
       ),
       GoRoute(
         path: selectPackageRoute,

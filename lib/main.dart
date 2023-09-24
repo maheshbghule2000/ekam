@@ -85,6 +85,7 @@ class _MyAppState extends State<MyApp> {
               designSize: const Size(360, 690),
               builder: (BuildContext context, child) {
                 return GetMaterialApp.router(
+                
                   title: 'ekam',
                   initialBinding: InitialBinding(),
                   debugShowCheckedModeBanner: false,
