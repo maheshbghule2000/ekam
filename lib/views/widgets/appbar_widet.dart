@@ -12,12 +12,13 @@ class AppBarWidget extends StatelessWidget {
     required this.context,
   this.data,
   required this.onClick,
-   this.isInProgress
+   this.isInProgress,  this.fontSize
   });
   final BuildContext context;
   final String? data;
    final Function onClick;
      final bool? isInProgress;
+     final double? fontSize;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -51,7 +52,7 @@ class AppBarWidget extends StatelessWidget {
           SizedBoxWidget(width: 40,),
           TextWidget(context: context, data: data??'',
           fontWeight: FontWeight.bold,
-          fontSize: 25,
+          fontSize: fontSize??25,
           )
         ],
       ),
