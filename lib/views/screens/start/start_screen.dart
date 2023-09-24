@@ -1,6 +1,7 @@
 
 // import 'package:lottie/lottie.dart';
 
+import 'package:ekam/views/widgets/custom_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -20,21 +21,15 @@ class WelcomeScreen extends StatefulWidget {
 final WelcomeController _welcomeController = Get.find();
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-  @override
-  void initState() {
-    super.initState();
+  // @override
+  // void initState() {
+  //   super.initState();
 
-    //  Navigator.push<void>(
-    //                   context,
-    //                   MaterialPageRoute<void>(
-    //                     builder: (BuildContext context) =>
-    //                         WelcomeScreen(),
-    //                   ),
-    //                 );
-    Future.delayed(const Duration(seconds: 3), () {
-      _welcomeController.gotoDoctorDetailsScreen(context);
-    });
-  }
+   
+  //   Future.delayed(const Duration(seconds: 3), () {
+  //     _welcomeController.gotoDoctorDetailsScreen(context);
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +75,19 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     );
   }
 
+_nextButtonWidget(BuildContext context){
+  return CustomButtonWidget(context: context, data: 'Next',
+  
+  width: MediaQuery.of(context).size.width,
+  height: 50,
+  color: AppColors.whiteColor,
+  backgroundColor: AppColors.buttonColor,
+  borderRadius: 50,
+   onClick: (){
+
+ _welcomeController.gotoDoctorDetailsScreen(context);
+  });
+}
   // _imageWidget(BuildContext context) {
   //   return Column(
   //     mainAxisAlignment: MainAxisAlignment.center,
@@ -101,11 +109,22 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Center(
-          child: Image.asset(
-            'assets/images/doctor.png',
+          child: InkWell(
+            onTap: (){
+                Navigator.push<void>(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) =>
+                            const WelcomeScreen(),
+                      ),
+                    );
+            },
+            child: Image.asset(
+              'assets/images/doctor.png',
+            ),
           ),
         ),
- _dividerWidget(context),
+ _nextButtonWidget(context),
         // Center(
         //   child: Image.network(
         //     'https://baap-app-images.s3.ap-south-1.amazonaws.com/scaled_doctor.png',
@@ -156,4 +175,5 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       ),
     );
   }
+
 }
