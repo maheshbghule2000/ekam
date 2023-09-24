@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class AppColors {
   static const Color whiteColor = Color(0XFFFFFFFF);
   static const Color bodyColor = Color(0xffE4E4E4);
@@ -11,7 +10,7 @@ class AppColors {
   static const Color DarkGrayColor = Color.fromRGBO(32, 32, 32, 1);
   static const Color dividerColor = Color.fromRGBO(217, 212, 212, 1);
   static const Color text = Color(0xffE4E4E4);
-  static const Color searchTextColor = Color(0xffB9B9B9);
+  static const Color faintGrayColor= Color(0xffB9B9B9);
   static const Color containerColor = Color(0xffEAEAEA);
   static const Color red = Colors.red;
 
