@@ -20,8 +20,10 @@ class DoctorDetailsScreen extends StatefulWidget {
   State<DoctorDetailsScreen> createState() => _DoctorDetailsScreenState();
 }
 
-final DoctorDetailsController _doctorDeatilsController =
-    Get.put(DoctorDetailsController());
+// final DoctorDetailsController _doctorDeatilsController =
+//     Get.put(DoctorDetailsController());
+final DoctorDetailsController _doctorDeatilsController = Get.find();
+
 
 class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
   @override
@@ -75,6 +77,8 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                                   "https://hireforekam.s3.ap-south-1.amazonaws.com/doctors/1-Doctor.png",
                               doctorName: _doctorDeatilsController
                                   .doctorDetailsResponseModel.value.doctorName,
+                                  location: _doctorDeatilsController.doctorDetailsResponseModel.value.location,
+                                  speciality:  _doctorDeatilsController.doctorDetailsResponseModel.value.speciality,
                               onTap: () {},
                             )),
                       SizedBoxWidget(
