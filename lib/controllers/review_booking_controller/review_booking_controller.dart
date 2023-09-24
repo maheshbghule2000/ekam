@@ -11,6 +11,11 @@ class ReviewBookingController extends GetxController {
     refresh();
   }
 
+  void gotoSelectPackageScreen(BuildContext context) {
+    context.go(Routes.selectPackageRoute);
+    refresh();
+  }
+
   
 }
   

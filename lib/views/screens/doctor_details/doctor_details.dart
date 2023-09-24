@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import '../../../consts/app_colors.dart';
 import '../../../consts/app_sizes.dart';
 import '../../widgets/appbar_widet.dart';
+import '../../widgets/custom_button_widget.dart';
 import '../../widgets/text_widget.dart';
 import '../../widgets/doctor_details_widget.dart';
 import '../select_package/select_package.dart';
@@ -19,7 +20,7 @@ class DoctorDetailsScreen extends StatefulWidget {
   State<DoctorDetailsScreen> createState() => _DoctorDetailsScreenState();
 }
 
-final DoctorDetailsController dateController =
+final DoctorDetailsController _doctorDeatilsController =
     Get.put(DoctorDetailsController());
 
 class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
@@ -29,27 +30,34 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
       child: Scaffold(
         body: Padding(
           padding: EdgeInsets.only(
-              top: AppSizes.getPhoneSize(30), left: AppSizes.getPhoneSize(20)),
+            top: AppSizes.getPhoneSize(30),
+            left: AppSizes.getPhoneSize(20),
+            bottom: AppSizes.getPhoneSize(30),
+          ),
           child: Column(
+          
             children: [
               AppBarWidget(
                   context: context,
                   data: 'Book Appointment',
                   fontSize: 20,
                   onClick: () {
-                    Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) =>
-                            SelectPackageScreen(),
-                      ),
-                    );
+                    _doctorDeatilsController.gotoWelcomeScreen(context);
+                    // Navigator.push<void>(
+                    //   context,
+                    //   MaterialPageRoute<void>(
+                    //     builder: (BuildContext context) =>
+                    //         SelectPackageScreen(),
+                    //   ),
+                    // );
                   }),
               SizedBoxWidget(
                 height: 10,
               ),
               Padding(
-                padding: EdgeInsets.only(right: AppSizes.getPhoneSize(20)),
+                padding: EdgeInsets.only(
+                  right: AppSizes.getPhoneSize(20),
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,13 +87,21 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                       color: AppColors.blackColor,
                       fontSize: 18,
                     ),
-                    _timeWidget(context)
+                    // _timeWidget(context)
+
+                  
+                    SizedBoxWidget(
+                      height: 5,
+                    ),
                   ],
                 ),
               ),
+              Spacer(),
+               _nextButtonWidget(context),
             ],
           ),
         ),
+        // bottomNavigationBar: _nextButtonWidget(context),
       ),
     );
   }
@@ -167,18 +183,18 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
       height: 80,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: dateController.dateList.length,
+        itemCount: _doctorDeatilsController.dateList.length,
         itemBuilder: (context, index) {
-          final date = dateController.dateList[index];
-          final isSelected = dateController.selectedDate == date;
+          final date = _doctorDeatilsController.dateList[index];
+          final isSelected = _doctorDeatilsController.selectedDate == date;
           final dayFormat = DateFormat('E');
           final dateFormat = DateFormat('d MMM');
 
           return GestureDetector(
             onTap: () {
-              dateController.selectDate(date);
+              _doctorDeatilsController.selectDate(date);
             },
-            child: Obx(() => dateController.isLoading
+            child: Obx(() => _doctorDeatilsController.isLoading
                 ? const SizedBox()
                 : Container(
                     height: AppSizes.getPhoneSize(60),
@@ -223,54 +239,70 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
     );
   }
 
-  _timeWidget(BuildContext context) {
-    final timeSlots = dateController.generateTimeSlots(); // Get the time slots
-    return SizedBox(
-      height: 80,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: timeSlots.length,
-        itemBuilder: (context, index) {
-          final time = timeSlots[index];
-          final isSelected = dateController.selectedTime == time;
+  // _timeWidget(BuildContext context) {
+  //   final timeSlots = _doctorDeatilsController.generateTimeSlots(); // Get the time slots
+  //   return SizedBox(
+  //     height: 80,
+  //     child: ListView.builder(
+  //       scrollDirection: Axis.horizontal,
+  //       itemCount: timeSlots.length,
+  //       itemBuilder: (context, index) {
+  //         final time = timeSlots[index];
+  //         final isSelected = _doctorDeatilsController.selectedTime == time;
 
-          return GestureDetector(
-            onTap: () {
-              dateController.selectTime(time);
-            },
-            child: Obx(() => dateController.isLoading
-                ? const SizedBox()
-                : Container(
-                    height: AppSizes.getPhoneSize(60),
-                    width: AppSizes.getPhoneSize(120),
-                    margin: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: isSelected ? AppColors.buttonColor : Colors.white,
-                      borderRadius: BorderRadius.circular(30),
-                      border: Border.all(
-                        color: isSelected
-                            ? AppColors.faintGrayColor
-                            : AppColors.blackColor,
-                        width: 2.0,
-                      ),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextWidget(
-                          context: context,
-                          data: time,
-                          fontSize: 13,
-                          color: isSelected
-                              ? AppColors.blackColor
-                              : AppColors.blackColor,
-                        ),
-                      ],
-                    ),
-                  )),
-          );
-        },
-      ),
+  //         return GestureDetector(
+  //           onTap: () {
+  //             _doctorDeatilsController.selectTime(time);
+  //           },
+  //           child: Obx(() => _doctorDeatilsController.isLoading
+  //               ? const SizedBox()
+  //               : Container(
+  //                   height: AppSizes.getPhoneSize(60),
+  //                   width: AppSizes.getPhoneSize(120),
+  //                   margin: const EdgeInsets.all(8),
+  //                   decoration: BoxDecoration(
+  //                     color: isSelected ? AppColors.buttonColor : Colors.white,
+  //                     borderRadius: BorderRadius.circular(30),
+  //                     border: Border.all(
+  //                       color: isSelected
+  //                           ? AppColors.faintGrayColor
+  //                           : AppColors.blackColor,
+  //                       width: 2.0,
+  //                     ),
+  //                   ),
+  //                   child: Column(
+  //                     mainAxisAlignment: MainAxisAlignment.center,
+  //                     children: [
+  //                       TextWidget(
+  //                         context: context,
+  //                         data: time,
+  //                         fontSize: 13,
+  //                         color: isSelected
+  //                             ? AppColors.blackColor
+  //                             : AppColors.blackColor,
+  //                       ),
+  //                     ],
+  //                   ),
+  //                 )),
+  //         );
+  //       },
+  //     ),
+  //   );
+  // }
+  _nextButtonWidget(BuildContext context) {
+    return Padding(
+      padding:  EdgeInsets.only(   right: AppSizes.getPhoneSize(20),),
+      child: CustomButtonWidget(
+          context: context,
+          data: 'Make Appointment',
+          width: MediaQuery.of(context).size.width,
+          height: 50,
+          color: AppColors.whiteColor,
+          backgroundColor: AppColors.buttonColor,
+          borderRadius: 50,
+          onClick: () {
+            _doctorDeatilsController.gotoSelectPackageScreen(context);
+          }),
     );
   }
 }

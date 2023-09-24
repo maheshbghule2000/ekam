@@ -11,6 +11,15 @@ class BookingConfirmationController extends GetxController {
     refresh();
   }
 
+  void gotoreviewBookingScreen(BuildContext context) {
+    context.go(Routes.reviewBookingRoute);
+    refresh();
+  }
+  void gotowelcomeScreen(BuildContext context) {
+    context.go(Routes.hometRoute);
+    refresh();
+  }
+
   
 }
   

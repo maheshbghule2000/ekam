@@ -22,7 +22,7 @@ void initialBindings() {
   Get.lazyPut<TextEditingController>(() => TextEditingController());
   Get.lazyPut<WelcomeController>(() => WelcomeController());
   Get.lazyPut<DoctorDetailsController>(() => DoctorDetailsController());
-  Get.lazyPut<SelectPAckageController>(() => SelectPAckageController());
+  Get.lazyPut<SelectPackageController>(() => SelectPackageController());
   Get.lazyPut<ViewBookingsController>(() => ViewBookingsController());
   Get.lazyPut<BookingConfirmationController>(() => BookingConfirmationController());
   Get.lazyPut<ReviewBookingController>(() => ReviewBookingController());

@@ -33,7 +33,7 @@ class CustomFooterWidget extends GetResponsiveView {
            TextWidget(
             context: context,
             data: AppStrings.poweredBy,
-            color: AppColors.lightDarkColor,
+            color: AppColors.lightGrayDarkColor,
             fontSize: AppSizes.bodyLargeTextSizePhone.sp,
           ),
           TextWidget(

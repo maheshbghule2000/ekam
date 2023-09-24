@@ -1,5 +1,5 @@
 
-// import 'package:lottie/lottie.dart';
+import 'package:lottie/lottie.dart';
 
 import 'package:ekam/views/widgets/custom_button_widget.dart';
 import 'package:flutter/material.dart';
@@ -21,15 +21,15 @@ class WelcomeScreen extends StatefulWidget {
 final WelcomeController _welcomeController = Get.find();
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-  // @override
-  // void initState() {
-  //   super.initState();
+  @override
+  void initState() {
+    super.initState();
 
    
-  //   Future.delayed(const Duration(seconds: 3), () {
-  //     _welcomeController.gotoDoctorDetailsScreen(context);
-  //   });
-  // }
+    Future.delayed(const Duration(seconds: 3), () {
+      _welcomeController.gotoDoctorDetailsScreen(context);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return Column(
       children: [
         TextWidget(
-          data: 'Baap Doctor',
+          data: 'Ekam',
           fontWeight: FontWeight.bold,
           context: context,
           fontSize: 50,
@@ -88,53 +88,53 @@ _nextButtonWidget(BuildContext context){
  _welcomeController.gotoDoctorDetailsScreen(context);
   });
 }
-  // _imageWidget(BuildContext context) {
-  //   return Column(
-  //     mainAxisAlignment: MainAxisAlignment.center,
-  //     children: [
-  //       SizedBox(
-  //     height: AppSizes.getPhoneSize(350),
-  //         child: Center(
-  //           child: Lottie.asset(
-  //             'assets/images/animation_lmx68754.json',
-  //           ),
-  //         ),
-  //       )
-  //     ],
-  //   );
-  // }
-
   _imageWidget(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Center(
-          child: InkWell(
-            onTap: (){
-                Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (BuildContext context) =>
-                            const WelcomeScreen(),
-                      ),
-                    );
-            },
-            child: Image.asset(
-              'assets/images/doctor.png',
+        SizedBox(
+      height: AppSizes.getPhoneSize(350),
+          child: Center(
+            child: Lottie.asset(
+              'assets/images/animation_lmx68754.json',
             ),
           ),
-        ),
- _nextButtonWidget(context),
-        // Center(
-        //   child: Image.network(
-        //     'https://baap-app-images.s3.ap-south-1.amazonaws.com/scaled_doctor.png',
-        //     height: 300,
-        //     width: 300,
-        //   ),
-        // ),
+        )
       ],
     );
   }
+
+//   _imageWidget(BuildContext context) {
+//     return Column(
+//       mainAxisAlignment: MainAxisAlignment.center,
+//       children: [
+//         Center(
+//           child: InkWell(
+//             onTap: (){
+//                 Navigator.push<void>(
+//                       context,
+//                       MaterialPageRoute<void>(
+//                         builder: (BuildContext context) =>
+//                             const WelcomeScreen(),
+//                       ),
+//                     );
+//             },
+//             child: Image.asset(
+//               'assets/images/doctor.png',
+//             ),
+//           ),
+//         ),
+//  _nextButtonWidget(context),
+//         // Center(
+//         //   child: Image.network(
+//         //     'https://baap-app-images.s3.ap-south-1.amazonaws.com/scaled_doctor.png',
+//         //     height: 300,
+//         //     width: 300,
+//         //   ),
+//         // ),
+//       ],
+//     );
+//   }
 
   _bottomWidget(BuildContext context) {
     return Padding(
@@ -147,7 +147,7 @@ _nextButtonWidget(BuildContext context){
           TextWidget(
             context: context,
             data: AppStrings.poweredBy,
-            color: AppColors.lightDarkColor,
+            color: AppColors.lightGrayDarkColor,
             fontSize: AppSizes.bodyLargeTextSizePhone.sp,
           ),
           TextWidget(

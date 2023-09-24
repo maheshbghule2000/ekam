@@ -12,6 +12,10 @@ class DoctorDetailsController extends GetxController {
     context.go(Routes.selectPackageRoute);
     refresh();
   }
+  void gotoWelcomeScreen(BuildContext context) {
+    context.go(Routes.hometRoute);
+    refresh();
+  }
 
   var selectedDate = DateTime.now();
   var dateList = <DateTime>[];
@@ -33,20 +37,20 @@ class DoctorDetailsController extends GetxController {
   void selectTime(String time) {
     selectedTime.value = time;
   }
-  List<String> generateTimeSlots() {
-    final List<String> timeSlots = [];
-    final DateTime startTime = DateTime(selectedDate.year, selectedDate.month,
-        selectedDate.day, 19, 0); // 7:00 PM
-    final DateTime endTime = DateTime(selectedDate.year, selectedDate.month,
-        selectedDate.day, 23, 50); // 11:50 PM
+  // List<String> generateTimeSlots() {
+  //   final List<String> timeSlots = [];
+  //   final DateTime startTime = DateTime(selectedDate.year, selectedDate.month,
+  //       selectedDate.day, 19, 0); // 7:00 PM
+  //   final DateTime endTime = DateTime(selectedDate.year, selectedDate.month,
+  //       selectedDate.day, 23, 50); // 11:50 PM
 
-    while (startTime.isBefore(endTime)) {
-      final timeString = DateFormat('h:mm a').format(startTime);
-      timeSlots.add(timeString);
-      startTime
-          .add(const Duration(minutes: 30)); // Add 30 minutes for the next time slot
-    }
+  //   while (startTime.isBefore(endTime)) {
+  //     final timeString = DateFormat('h:mm a').format(startTime);
+  //     timeSlots.add(timeString);
+  //     startTime
+  //         .add(const Duration(minutes: 30)); // Add 30 minutes for the next time slot
+  //   }
 
-    return timeSlots;
-  }
+  //   return timeSlots;
+  // }
 }
