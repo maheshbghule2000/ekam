@@ -77,7 +77,7 @@ class DoctorDetailsController extends GetxController {
       (data) async {
         doctorDetailsResponseModel.value = data;
         _isDataLoading(false);
-        print(data);
+        print("${data}_________data");
       },
     );
   }

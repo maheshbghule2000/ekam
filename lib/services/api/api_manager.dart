@@ -32,13 +32,10 @@ class ApiManager {
         Uri.parse(url),
         headers: headers,
       );
-      // logger.d("${response.request?.method.toString()}");
 
-      // Get.printInfo(info: 'Response body of Get ${response.request!.url} ***********>> ${response.body}');
       logger.d(
           'Response body of Get ${response.request!.url} -> ${response.body}');
 
-      // Handle response and errors
       var responseJson = _returnResponse(response);
       return responseJson;
     } on SocketException {
@@ -46,7 +43,6 @@ class ApiManager {
     }
   }
 
-  // This method is used for call API for the `POST` method, need to pass API Url endpoint
   Future<dynamic> post(
     String url,
     var parameters, {
@@ -75,11 +71,9 @@ class ApiManager {
     }
   }
 
-  // This method is used for call API for the `PUT` method, need to pass API Url endpoint
   Future<dynamic> put(String url, var parameters,
       {String contentType = jsonContentType}) async {
     try {
-      // Declare the header for the request, if user not logged in then pass empty array as header or else pass the authentication token stored on login time
       Map<String, String> headers = {
         'Content-Type': contentType,
       };
@@ -89,14 +83,11 @@ class ApiManager {
         headers: headers,
         body: jsonEncode(parameters),
       );
-
-      // Get.printInfo(info: 'Response body of Put ${response.request!.url} ***********>> ${response.body}');
       log('Response body of Get ${response.request!.url} ->${response.statusCode} ${response.body}');
       log("parameters : ----${parameters.toString()}");
       log('Response body -> ${response.body}');
 
-      // Handle response and errors
-      // Map<dynamic, dynamic> responseJson = _returnResponse(response);
+     
 
       var responseJson = _returnResponse(response);
       return responseJson;
@@ -105,7 +96,6 @@ class ApiManager {
     }
   }
 
-  // This method is used for call API for the `DELETE` method, need to pass API Url endpoint
   Future<dynamic> delete(
     String url, {
     String contentType = jsonContentType,
@@ -256,49 +246,21 @@ class ApiManager {
     switch (response.statusCode) {
       case 200:
         var responseJson = json.decode(response.body);
-        if (responseJson['success'] == false) {
-          throw BadRequestException(
-            'Err:${response.statusCode} ${responseJson['message']}',
-            responseJson,
-          );
-        }
+       
         return responseJson;
       case 201:
         var responseJson = json.decode(response.body);
 
-        if (responseJson['success'] == false) {
-          throw BadRequestException(
-            'Err:${response.statusCode} ${responseJson['message']}',
-            responseJson,
-          );
-        }
+       
         return responseJson;
       case 204:
         var responseJson = json.decode(response.body);
-        logger.e("Err:${response.statusCode} ${responseJson}");
-        if (responseJson['status'] == false) {
-          throw BadRequestException(
-            'Err:${response.statusCode} ${responseJson['message']}',
-            responseJson,
-          );
-        }
+     
         return responseJson;
-      case 400:
-        ErrorModel errorModel = ErrorModel.fromJson(json.decode(response.body));
-        logger.e("Err:${response.statusCode} ${errorModel.message}");
-        throw BadRequestException(
-          'Err:${response.statusCode} ${errorModel.message}',
-          errorModel.toJson(),
-        );
+      
       case 401:
         var responseJson = json.decode(response.body);
-        if (responseJson['success'] == false) {
-          logger.e("Err:${response.statusCode} ${responseJson['message']}");
-          throw BadRequestException(
-            'Err:${response.statusCode} ${responseJson['message']}',
-            responseJson,
-          );
-        }
+        
         return responseJson;
       case 403:
 
